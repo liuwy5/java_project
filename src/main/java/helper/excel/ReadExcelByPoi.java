@@ -1,6 +1,5 @@
 package helper.excel;
 
-import helper.print.PrintHelper;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -11,7 +10,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
@@ -20,7 +18,7 @@ import java.util.List;
  * Created by ubuntu
  */
 public class ReadExcelByPoi {
-    private static List<String[]> readExcel(String filePath){
+    public static List<String[]> readExcel(String filePath){
         if(filePath.endsWith("xls")){
             return readExcelLowVersion(filePath);
         }else if(filePath.endsWith("xlsx")){
@@ -91,33 +89,5 @@ public class ReadExcelByPoi {
             }
         }
         return list;
-    }
-
-    private static void createExcelLowVersion(){
-        HSSFWorkbook hssfWorkbook = new HSSFWorkbook(); // 创建 一个excel文档对象
-        HSSFSheet sheet = hssfWorkbook.createSheet();// 创建一个工作薄对象
-        Row row = sheet.createRow(0);
-        Cell cell = row.createCell(0);
-        cell.setCellValue("aaaa");
-        // 文件输出流
-
-        FileOutputStream os;
-        try{
-            os = new FileOutputStream("/home/ubuntu/excel/style_2003.xls");
-            hssfWorkbook.write(os);// 将文档对象写入文件输出流
-            os.close();// 关闭文件输出流
-            System.out.println("创建成功 office 2003 excel");
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-
-    }
-
-    public static void main(String[] args){
-        List<String[]> lowList = ReadExcelByPoi.readExcel("/home/ubuntu/excel/style_2003.xls");
-        PrintHelper.print(lowList);
-        List<String[]> highList = ReadExcelByPoi.readExcel("/home/ubuntu/excel/t3.xlsx");
-        PrintHelper.print(highList);
-        ReadExcelByPoi.createExcelLowVersion();
     }
 }
