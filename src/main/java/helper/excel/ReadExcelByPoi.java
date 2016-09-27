@@ -18,6 +18,12 @@ import java.util.List;
  * Created by ubuntu
  */
 public class ReadExcelByPoi {
+    /**
+     * 读取excel文件内容
+     * 每一行中，如果第一列没有值，则为null，直到遇到不为空的列。后面不为空的列为""
+     * @param filePath 文件路径
+     * @return excel文件内容构成的list
+     */
     public static List<String[]> readExcel(String filePath){
         if(filePath.endsWith("xls")){
             return readExcelLowVersion(filePath);
