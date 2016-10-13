@@ -1,4 +1,4 @@
-package helper.exception;
+package util.exception;
 
 /**
  * Created by ubuntu.

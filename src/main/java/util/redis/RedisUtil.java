@@ -1,26 +1,28 @@
-package helper.redis;
+package util.redis;
 
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Pipeline;
 import redis.clients.jedis.Response;
 import redis.clients.jedis.Transaction;
+import util.configuration.ConfigUtil;
 
-import java.util.List;
 import java.util.Set;
 
 /**
  * Created by ubuntu.
  */
-public class RedisHelper {
+public class RedisUtil {
+    private static String host = ConfigUtil.readRedisProperties().getString("redis.ip");
+    private static int port = ConfigUtil.readRedisProperties().getInt("redis.port");
+    static Jedis jedis = new Jedis(host, port);
+
     public static String T(){
-        Jedis jedis = new Jedis("localhost", 6379);
         jedis.set("a", "value");
         return jedis.get("a");
     }
 
     public static void transaction(){
-        Jedis jedis = new Jedis("localhost", 6379);
         Transaction transaction = jedis.multi();
 
         transaction.set("key1", "value1");
@@ -52,7 +54,6 @@ public class RedisHelper {
      * This way you send commands without waiting for response, and you actually read the responses at the end, which is faster.
      */
     public static void popelining(){
-        Jedis jedis = new Jedis("localhost", 6379);
         Pipeline pipeline = jedis.pipelined();
 
         pipeline.set("key1", "value1");

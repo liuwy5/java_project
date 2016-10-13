@@ -1,6 +1,6 @@
-package helper.excel;
+package util.excel;
 
-import helper.print.PrintHelper;
+import util.print.PrintHelper;
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;

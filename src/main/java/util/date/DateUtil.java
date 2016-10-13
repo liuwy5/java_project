@@ -1,4 +1,4 @@
-package helper.date;
+package util.date;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Created by ubuntu.
  */
-public class DateHelper {
+public class DateUtil {
     public static String getDateT(){
         Calendar calendar = Calendar.getInstance();
         try{

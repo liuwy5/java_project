@@ -1,24 +1,24 @@
-package helper.redis;
+package util.redis;
 
 import org.junit.Test;
 
 /**
  * Created by ubuntu.
  */
-public class RedisHelperTest {
+public class RedisUtilTest {
     @Test
     public void TTest(){
-        String value = RedisHelper.T();
+        String value = RedisUtil.T();
         System.out.println(value);
     }
 
     @Test
     public void transactionTest(){
-        RedisHelper.transaction();
+        RedisUtil.transaction();
     }
 
     @Test
     public void popeliningTest(){
-        RedisHelper.popelining();
+        RedisUtil.popelining();
     }
 }
