@@ -21,8 +21,8 @@ public class VerificationCode {
         try{
             temp = File.createTempFile("ez_captcha_", ".jpg");
             os = new FileOutputStream(temp);
-            temp.deleteOnExit();
             new GCage().draw(text, os);
+            temp.deleteOnExit();
         } catch (Exception e){
             e.printStackTrace();
         } finally {
