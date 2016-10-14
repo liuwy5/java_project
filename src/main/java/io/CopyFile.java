@@ -11,7 +11,7 @@ public class CopyFile {
      * @param src 源文件
      * @param dstPath 目标文件
      */
-    private static void copy(File src, String dstPath) {
+    public static void copy(File src, String dstPath) {
         if(src.exists()){
             File fPath = new File(dstPath);
             if (!fPath.exists()) {
