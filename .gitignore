@@ -1,0 +1,13 @@
+*.class
+*.jar
+*.war
+*.ear
+.idea/
+*.iml
+target/
+logs/
+~*.docx
+~*.xlsx
+~*.doc
+*.cap
+build/
